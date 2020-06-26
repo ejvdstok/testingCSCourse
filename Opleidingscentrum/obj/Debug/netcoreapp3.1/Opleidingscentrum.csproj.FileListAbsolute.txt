@@ -1,0 +1,13 @@
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.exe
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.deps.json
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.runtimeconfig.json
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.runtimeconfig.dev.json
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.dll
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\bin\Debug\netcoreapp3.1\Opleidingscentrum.pdb
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.csprojAssemblyReference.cache
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.csproj.CoreCompileInputs.cache
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.AssemblyInfoInputs.cache
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.AssemblyInfo.cs
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.dll
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.pdb
+C:\Users\ejvds\source\repos\Opleidingscentrum\Opleidingscentrum\obj\Debug\netcoreapp3.1\Opleidingscentrum.genruntimeconfig.cache
