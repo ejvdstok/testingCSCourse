@@ -42,7 +42,30 @@ namespace FLYNET.Personeel
 
         public override decimal TotaleKostprijsPerDag
         {
-            get { return BasisKostprijsPerDag; }
+            get
+            {
+                decimal Salaris;
+                if (Functie == Graad.Captain)
+                {
+                    Salaris = BasisKostprijsPerDag * 1.3M;
+                }
+                if (Functie == Graad.SeniorFlightOfficer)
+                {
+                    Salaris = BasisKostprijsPerDag * 1.2M;
+                }
+                if (Functie == Graad.SecondOfficer)
+                {
+                    Salaris = BasisKostprijsPerDag * 1.1M;
+                }
+                else //(Functie == Graad.JuniorFlightOfficer)
+                {
+                    Salaris = BasisKostprijsPerDag;
+                }
+                if (HasCertificate("CLP"))
+                { Salaris = Salaris + 50m; }
+                return Salaris;
+            }
+
         }
 
         //constructor
@@ -53,5 +76,6 @@ namespace FLYNET.Personeel
             Vlieguren = vlieguren;
             BasisKostprijsPerDag = basiskostprijs;
         }
+
     }
 }

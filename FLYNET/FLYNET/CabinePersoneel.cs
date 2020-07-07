@@ -26,23 +26,29 @@ namespace FLYNET.Personeel
                 graad = value;
             }
         }
-        private int Bonus;
-        private int Salaris;
+
+        public override decimal BasisKostprijsPerDag
+        {
+            get { return BasisKostprijsPerDag; } 
+            set { BasisKostprijsPerDag = value; }
+        }
 
         public override decimal TotaleKostprijsPerDag
         {
             get
             {
+                decimal Salaris;
                 if (Type == Graad.Pulser)
                 {
-                    Bonus = BasisKostprijsPerDag * 0.2;
-                    Salaris = BasisKostprijsPerDag + Bonus;
-                    return Salaris;
+                    Salaris = BasisKostprijsPerDag * 1.2M;
                 }
-                if (Type == Graad.Steward)
-                { 
-                    return BasisKostprijsPerDag;
+                else //(Type == Graad.Steward)
+                {
+                    Salaris = BasisKostprijsPerDag;
                 }
+                if (HasCertificate("EHBO"))
+                { Salaris = Salaris + 5m;}
+                return Salaris;
             }
 
         }

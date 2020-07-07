@@ -6,7 +6,8 @@ namespace FLYNET
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //toevoegen certificaten
+           // Onderdelen = new List<string> { "Tomatensaus", "Mozzarella" }, 
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FLYNET.Personeel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +7,19 @@ namespace FLYNET.Vloot
 {
     class Vlucht
     {
+
         public int VluchtID;
         public string Bestemming;
         public int DuurtijdinDagen;
-        //vliegmaatschappij is class
-        //Toestel; komt uit class luchtvaartuig
+        //vliegmaatschappij uit andere class
+        public readonly VliegMaatschappij vliegmaatschappij;
+        //Toestel, passagiers of vracht.
+        public Luchtvaartuig Toestel;
         //Personeel
-
+        public List<VliegendPersoneel> personeel;
+        public decimal vluchtkost;
         //method
-        BerekenVluchtKost();
+        BerekenVluchtKost();//kost vliegtuig * aantal dagen
+          { personeel TotaleKostprijsPerDag + vliegmaatschappij TotaleKostprijsPerDag * DuurtijdinDagen;}
     }
 }

@@ -7,7 +7,7 @@ namespace FLYNET.Vloot
     class VliegMaatschappij
     {
         public int VliegMaatschappijID;
-        enum VliegMaatschappijNaam
+        public enum VliegMaatschappijNaam
         { BrusselsAirlines, Jetairfly, ThomasCook, TNTAirways}
         //vloot verzameling
     }

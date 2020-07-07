@@ -29,5 +29,17 @@ namespace FLYNET.Personeel
         {
             get { return BasisKostprijsPerDag; }
         }
+
+        //method
+        public bool HasCertificate(string afkorting)
+        {
+            // heeft persoon certificaat type input?
+            foreach (var certificate in Certificates)
+            {
+                if (afkorting == certificate.CertificaatAfkorting)
+                { return true; }
+            }
+            return false;
+        }
     }
 }
