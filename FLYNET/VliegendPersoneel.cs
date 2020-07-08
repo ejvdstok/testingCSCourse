@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FLYNET.Personeel
 {
-    class VliegendPersoneel : Personeelslid
+    abstract class VliegendPersoneel : Personeelslid
     {
         // Enum - Graad
         public enum Graad
@@ -38,5 +38,6 @@ namespace FLYNET.Personeel
             }
             return false;
         }
+
     }
 }

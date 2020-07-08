@@ -8,10 +8,12 @@ namespace FLYNET.Vloot
     {
         public int VliegMaatschappijID;
         public enum VliegMaatschappijNaam
-        { BrusselsAirlines, Jetairfly, ThomasCook, TNTAirways}
-        //vloot list
+        { 
+            BrusselsAirlines, Jetairfly, ThomasCook, TNTAirways
+        }
+        //vloot in programma
         
-        public VliegMaatschappij(int vliegid, VliegMaatschappijNaam value, Luchtvaartuig vliegtuig)
+        public VliegMaatschappij(int vliegid, VliegMaatschappijNaam value, List<Luchtvaartuig> vliegtuig)
         {
             VliegMaatschappijID = vliegid;
         }

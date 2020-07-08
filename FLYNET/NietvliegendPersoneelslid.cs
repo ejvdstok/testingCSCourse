@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FLYNET.Personeel
 {
-    abstract class NietVliegendPersoneelslid : Personeelslid
+     class NietVliegendPersoneelslid : Personeelslid
     {
 
         //enum- afdeling: Personeelsdienst, Boekhouding, Incheckbalie, Logistiek

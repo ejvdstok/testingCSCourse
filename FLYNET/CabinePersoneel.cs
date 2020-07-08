@@ -57,12 +57,13 @@ namespace FLYNET.Personeel
         // 5€ extra voor ehbo certificaat
 
         //constructor
-        public CabinePersoneel(string personeelsId, string naam, Graad value, decimal basiskostprijs, List<Certificate> cerificaten)
+        public CabinePersoneel(string personeelsId, string naam, Graad value, string werkpositie, decimal basiskostprijs, List<Certificate> cerificaten)
         {
             PersoneelsId = personeelsId;
             Naam = naam;
             BasisKostprijsPerDag = basiskostprijs;
             Certificates = cerificaten;
+            Werkpositie = werkpositie;
         }
     }
 }

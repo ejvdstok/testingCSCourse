@@ -28,6 +28,5 @@ namespace FLYNET.Personeel
 
         public abstract decimal TotaleKostprijsPerDag { get; }
 
-
     }
 }
