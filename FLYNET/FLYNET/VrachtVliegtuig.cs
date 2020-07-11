@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FLYNET.Vloot
 {
-    abstract class VrachtVliegtuig : Luchtvaartuig
+    public class VrachtVliegtuig : Luchtvaartuig
     {
         private decimal BasisKostprijsVrachtVliegtuig;
         public int Laadvermogen;
@@ -12,7 +12,7 @@ namespace FLYNET.Vloot
         public override decimal BasisKostprijsPerDag
         {
             get { return BasisKostprijsVrachtVliegtuig; }
-            set { BasisKostprijsVrachtVliegtuig = 100 * Laadvermogen; }
+            set { BasisKostprijsVrachtVliegtuig = BasisKostprijsPerDag + 100 * Laadvermogen; }
         }
 
         //constructor
@@ -24,5 +24,14 @@ namespace FLYNET.Vloot
             Laadvermogen = laadvermogen;
             BasisKostprijsPerDag = basiskostprijs;
         }
+
+        //method
+        public override decimal BerekenTotaleKostprijsPerDag()
+        {
+            decimal kostprijs;
+            kostprijs = BasisKostprijsPerDag + 100m * Laadvermogen;
+            return kostprijs;
+        }
+
     }
 }

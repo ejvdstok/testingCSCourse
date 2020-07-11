@@ -1,0 +1,13 @@
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.exe
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.deps.json
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.runtimeconfig.json
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.runtimeconfig.dev.json
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.dll
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\bin\Debug\netcoreapp3.1\FLYNET.pdb
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.csprojAssemblyReference.cache
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.AssemblyInfoInputs.cache
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.AssemblyInfo.cs
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.csproj.CoreCompileInputs.cache
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.dll
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.pdb
+C:\Users\ejvds\Documents\programmeren\deel2\CSharpCorePF\FLYNET\FLYNET\obj\Debug\netcoreapp3.1\FLYNET.genruntimeconfig.cache

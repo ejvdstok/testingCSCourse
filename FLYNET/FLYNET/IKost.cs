@@ -4,12 +4,12 @@ using System.Text;
 
 namespace FLYNET
 {
-    interface IKost
+    public interface IKost
     {
         decimal BasisKostprijsPerDag
         { get; set; }
 
-        decimal TotaleKostprijsPerDag
-        { get; }
+        public decimal BerekenTotaleKostprijsPerDag();
+        
     }
 }
