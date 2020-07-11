@@ -4,15 +4,15 @@ using System.Text;
 
 namespace FLYNET.Vloot
 {
-    abstract class Luchtvaartuig : IKost
+    public abstract class Luchtvaartuig : IKost
     {
-        public string NaamVliegtuig;
+        public string TypeVliegtuig;
         public int Kruissnelheid;
         public int VliegBereik;
 
         public abstract decimal BasisKostprijsPerDag { get; set; }
 
-        public abstract decimal TotaleKostprijsPerDag { get; }
-
+        public abstract decimal BerekenTotaleKostprijsPerDag();
+        
     }
 }

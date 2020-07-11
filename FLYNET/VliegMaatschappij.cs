@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FLYNET.Vloot
 {
-    class VliegMaatschappij
+    public class VliegMaatschappij
     {
         public int VliegMaatschappijID;
         public enum VliegMaatschappijNaam
@@ -12,7 +12,8 @@ namespace FLYNET.Vloot
             BrusselsAirlines, Jetairfly, ThomasCook, TNTAirways
         }
         //vloot in programma
-        
+        public List<Luchtvaartuig> Vloot { get; set; }
+
         public VliegMaatschappij(int vliegid, VliegMaatschappijNaam value, List<Luchtvaartuig> vliegtuig)
         {
             VliegMaatschappijID = vliegid;

@@ -4,9 +4,9 @@ using System.Text;
 
 namespace FLYNET.Personeel
 {
-     class NietVliegendPersoneelslid : Personeelslid
+    public class NietVliegendPersoneelslid : Personeelslid
     {
-
+        int UrenPerWeek;
         //enum- afdeling: Personeelsdienst, Boekhouding, Incheckbalie, Logistiek
         public enum Afdeling
         {
@@ -16,16 +16,21 @@ namespace FLYNET.Personeel
         public override decimal BasisKostprijsPerDag
         { get; set; }
 
-        public override decimal TotaleKostprijsPerDag
-        {
-            get { return BasisKostprijsPerDag; }
-        }
         // constructor
 
-        public NietVliegendPersoneelslid(string naam, string personeelsId, Afdeling value)
+        public NietVliegendPersoneelslid(string naam, string personeelsId, Afdeling value, int uren)
         {
             Naam = naam;
             PersoneelsId = personeelsId;
+            UrenPerWeek = uren;
+        }
+
+        //Method
+        public override decimal BerekenTotaleKostprijsPerDag()
+        {
+            decimal kostprijs;
+            kostprijs = UrenPerWeek * 10;
+            return kostprijs;
         }
     } 
 }

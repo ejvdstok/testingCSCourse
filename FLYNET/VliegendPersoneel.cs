@@ -5,39 +5,22 @@ using System.Text;
 
 namespace FLYNET.Personeel
 {
-    abstract class VliegendPersoneel : Personeelslid
+    public abstract class VliegendPersoneel : Personeelslid
     {
+       
         // Enum - Graad
-        public enum Graad
-        {
-            Captain, SeniorFlightOfficer, SecondOfficer, JuniorFlightOfficer, Steward, Pulser
-        }
+        public abstract Graad Graad { get; set; }
         // code in afgeleide classes.
 
-        protected List<Certificate> Certificates;
+        public List<Certificaat> Certificaten { get; set; }
         //add in programma
 
         public override decimal BasisKostprijsPerDag
-        { get;
-            set;
-        }
+        { get; set;}
 
-        public override decimal TotaleKostprijsPerDag
-        {
-            get { return BasisKostprijsPerDag; }
-        }
-
-        //method
-        public bool HasCertificate(string afkorting)
-        {
-            // heeft persoon certificaat type input?
-            foreach (var certificate in Certificates)
-            {
-                if (afkorting == certificate.CertificaatAfkorting)
-                { return true; }
-            }
-            return false;
-        }
+        //method 
+        abstract public override decimal BerekenTotaleKostprijsPerDag();
+        abstract public void Afbeelden();
 
     }
 }

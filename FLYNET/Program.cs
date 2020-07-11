@@ -3,56 +3,14 @@ using FLYNET.Vloot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace FLYNET
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            VliegendPersoneel captKirk = new CockpitPersoneel("001", "Capitain Kirk", VliegendPersoneel.Graad.Captain, 5000, 500,
-                new List<Certificate> {
-                Certificate.PPL,
-                Certificate.ATPL,
-                Certificate.CPL,
-                Certificate.SURV
-            });
-            VliegendPersoneel Spock = new CockpitPersoneel("002", "Spock", VliegendPersoneel.Graad.SecondOfficer, 4500, 400,
-                new List<Certificate> {
-                Certificate.PPL,
-                Certificate.ATPL,
-                Certificate.CPL,
-                Certificate.IFS
-            });
-            VliegendPersoneel McCoy = new CockpitPersoneel("003", "McCoy", VliegendPersoneel.Graad.SeniorFlightOfficer, 4500, 400,
-                new List<Certificate> {
-                Certificate.PPL,
-                Certificate.ATPL,
-                Certificate.CPL,
-                Certificate.SURV
-            });
-            VliegendPersoneel PChekov = new CabinePersoneel("004", "Pavel Chekov", VliegendPersoneel.Graad.Pulser, "deur1", 300,
-                new List<Certificate> {
-                Certificate.ME,
-                Certificate.MCC,
-                Certificate.EHBO,
-                Certificate.IFS
-            });
-            VliegendPersoneel HSulu = new CabinePersoneel("005", "Hikaru Sulu", VliegendPersoneel.Graad.Steward, "deur2", 300,
-                new List<Certificate> {
-                Certificate.ME,
-                Certificate.MCC,
-                Certificate.FIRE,
-                Certificate.SURV,
-                Certificate.IFS
-            });
-            VliegendPersoneel SkyWalker = new CabinePersoneel("006", "Skywalker", VliegendPersoneel.Graad.Steward, "nooduitgang", 300,
-                new List<Certificate> {
-                Certificate.EHBO,
-                Certificate.FIRE,
-                Certificate.SURV,
-                Certificate.IFS
-            });
+        { 
             Luchtvaartuig AirbusA319 = new PassagiersVliegtuig("AirbusA319", 880, 6850, 141, 1000m);
             Luchtvaartuig Boeing737 = new PassagiersVliegtuig("Boeing737", 850, 12500, 190, 1500m);
             Luchtvaartuig Boeing787 = new PassagiersVliegtuig("Boeing787", 913, 15700, 330, 2000m);
@@ -80,62 +38,166 @@ namespace FLYNET
             { AirbusA319,
                 Boeing787,
             });
-            // array van vluchten
-            Vlucht[] vluchten = new Vlucht[5];
 
-            vluchten[0] = new Vlucht(1, "New York", BrusselsAirlines, Boeing787, 2, new List<VliegendPersoneel>
-            {captKirk,
-            Spock,
-            PChekov,
-            HSulu,});
-            vluchten[1] = new Vlucht(2, "Beijing", TNTAirways, antonovAn225, 1, new List<VliegendPersoneel>
-            {captKirk,
-            SkyWalker,});
-            vluchten[2] = new Vlucht(3, "Sydney", ThomasCook, AirbusA319, 3, new List<VliegendPersoneel>
-            {captKirk,
-            Spock,
-            PChekov,
-            HSulu,});
-            vluchten[3] = new Vlucht(4, "Singapore", BrusselsAirlines, britishAerospace146, 2, new List<VliegendPersoneel>
-            {McCoy,
-            HSulu,
-            SkyWalker});
-            vluchten[4] = new Vlucht(5, "Malta", Jetairfly, Boeing737, 1, new List<VliegendPersoneel>
-            {captKirk,
-            Spock,
-            SkyWalker
-            });
-
-            Console.WriteLine();
-            decimal TotaleKost = 0;
-
-            //checken op vrachtvluchten
-            foreach (Vlucht ritjes in vluchten)
+            List<Certificaat> Certificaten;
+            Certificaat PPL = new Certificaat
             {
-                Console.WriteLine("Vrachtvluchten");
-                var vrachtvluchten = vluchten.Where(Luchtvaartuig == VrachtVliegtuig);
-                foreach (var vlucht in vrachtvluchten)
+                CertificaatAfkorting = "PPL",
+                CertificaatOmschrijving = "Private Pilot License"
+            };
+
+            Certificaat ATPL = new Certificaat
+            {
+                CertificaatAfkorting = "ATPL",
+                CertificaatOmschrijving = "Airline Transport Pilot License"
+            };
+
+            Certificaat IR = new Certificaat
+            {
+                CertificaatAfkorting = "IR",
+                CertificaatOmschrijving = "Instrument Rating"
+            };
+
+            Certificaat CPL = new Certificaat
+            {
+                CertificaatAfkorting = "CPL",
+                CertificaatOmschrijving = "Commercial Pilot License"
+            };
+
+            Certificaat ME = new Certificaat
+            {
+                CertificaatAfkorting = "ME",
+                CertificaatOmschrijving = "Multi Engine"
+            };
+
+            Certificaat MCC = new Certificaat
+            {
+                CertificaatAfkorting = "MCC",
+                CertificaatOmschrijving = "Multi Crew Concept"
+            };
+
+            Certificaat EHBO = new Certificaat
+            {
+                CertificaatAfkorting = "EHBO",
+                CertificaatOmschrijving = "First Aid"
+            };
+
+            Certificaat EVAC = new Certificaat
+            {
+                CertificaatAfkorting = "EVAC",
+                CertificaatOmschrijving = "Evacution Procedures"
+            };
+
+            Certificaat FIRE = new Certificaat
+            {
+                CertificaatAfkorting = "FIRE",
+                CertificaatOmschrijving = "Fire Fighting"
+            };
+
+            Certificaat SURV = new Certificaat
+            {
+                CertificaatAfkorting = "SURV",
+                CertificaatOmschrijving = "Survival"
+            };
+
+            Certificaat IFS = new Certificaat
+            {
+                CertificaatAfkorting = "IFS",
+                CertificaatOmschrijving = "In Flight Service"
+            };
+
+            {
+                VliegendPersoneel captKirk = new CockpitPersoneel("001", "Capitain Kirk", Graad.Captain, 5000, 500,
+                    new List<Certificaat> {
+                PPL, ATPL, CPL, SURV});
+                VliegendPersoneel Spock = new CockpitPersoneel("002", "Spock", Graad.SecondOfficer, 4500, 400,
+                    new List<Certificaat> {
+                PPL, ATPL, CPL, IFS
+                });
+                VliegendPersoneel McCoy = new CockpitPersoneel("003", "McCoy", Graad.SeniorFlightOfficer, 4500, 400,
+                    new List<Certificaat> {
+                PPL, ATPL, CPL, SURV
+                });
+                VliegendPersoneel PChekov = new CabinePersoneel("004", "Pavel Chekov", Graad.Purser, "deur1", 300,
+                    new List<Certificaat> {
+                ME, MCC, EHBO, IFS
+                });
+                VliegendPersoneel HSulu = new CabinePersoneel("005", "Hikaru Sulu", Graad.Steward, "deur2", 300,
+                    new List<Certificaat> {
+                ME, MCC, FIRE, SURV, IFS
+                });
+                VliegendPersoneel SkyWalker = new CabinePersoneel("006", "Skywalker", Graad.Steward, "nooduitgang", 300,
+                    new List<Certificaat> {
+                EHBO, FIRE, SURV, IFS
+                });
+
+                // array van vluchten
+                Vlucht[] vluchten = new Vlucht[5];
+
+                vluchten[0] = new Vlucht(1, "New York", BrusselsAirlines, Boeing787, 2, new List<VliegendPersoneel>
+                 {captKirk, Spock, PChekov, HSulu,});
+                vluchten[1] = new Vlucht(2, "Beijing", TNTAirways, antonovAn225, 1, new List<VliegendPersoneel>
+                  {captKirk, SkyWalker,});
+                vluchten[2] = new Vlucht(3, "Sydney", ThomasCook, AirbusA319, 3, new List<VliegendPersoneel>
+                  {captKirk, Spock, PChekov, HSulu,});
+                vluchten[3] = new Vlucht(4, "Singapore", BrusselsAirlines, britishAerospace146, 2, new List<VliegendPersoneel>
+                {McCoy, HSulu, SkyWalker});
+                vluchten[4] = new Vlucht(5, "Malta", Jetairfly, Boeing737, 1, new List<VliegendPersoneel>
+                 {captKirk, Spock, SkyWalker});
+
+                Console.WriteLine();
+
+                //checken op vrachtvluchten
+                foreach (Vlucht ritjes in vluchten)
                 {
-                    Console.WriteLine(Vlucht.VluchtID + ": " + Bestemming + " (" + VliegMaatschappij + ") - " + Toestel);
-                    Console.WriteLine("------------------------------------------------------------------------------");
-                    Console.WriteLine(" ");
-                    Console.WriteLine("Cockpit personeel.");
-                    Console.WriteLine(" ");
-                    var cockpit = Personeel.Where(VliegendPersoneel == CockpitPersoneel);
-                    foreach (var foo in cockpit)
+                    Console.WriteLine("Vrachtvluchten");
+                    var vrachtvluchten = vluchten.Where(v => v.Toestel.GetType() == typeof(VrachtVliegtuig));
+                    foreach (var vlucht in vrachtvluchten)
                     {
-                        Console.WriteLine(Personeelslid.PersoneelsId + ": " + Personeelslid.Naam + " - " + Personeelslid.Graad);
-                        Console.WriteLine("Certificaten: " + VliegendPersoneel.certificate);
-                        Console.WriteLine("Vlieguren: " + VliegendPersoneel);
+                        Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} - {vlucht.Toestel}");
+                        Console.WriteLine("------------------------------------------------------------------------------");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("Cockpit personeel.");
+                        Console.WriteLine(" ");
+
+                        var cockpit = vlucht.Personeel.Where(p => p.GetType() == typeof(CockpitPersoneel));
+                        foreach (var foo in cockpit)
+                        {
+                            foo.Afbeelden();
+                        }
+                        Console.WriteLine("Cabine personeel: ");
+                        Console.WriteLine("");
+                        var cabine = vlucht.Personeel.Where(p => p.GetType() == typeof(CabinePersoneel));
+                        foreach (var bar in cabine)
+                        {
+                            bar.Afbeelden();
+                        }
                     }
-                }
+                    Console.WriteLine("Passagiersvluchten");
+                    var passagiersvluchten = vluchten.Where(v => v.Toestel.GetType() == typeof(PassagiersVliegtuig));
+                    foreach (var vlucht in passagiersvluchten)
+                    {
+                        Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} - {vlucht.Toestel}");
+                        Console.WriteLine("------------------------------------------------------------------------------");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("Cockpit personeel.");
+                        Console.WriteLine(" ");
 
-
-                /*  
-                  TotaleKost += foo.TotaleKostprijsPerDag;*/
-
+                        var cockpit = vlucht.Personeel.Where(p => p.GetType() == typeof(CockpitPersoneel));
+                        foreach (var foo in cockpit)
+                        {
+                            foo.Afbeelden();
+                        }
+                        Console.WriteLine("Cabine personeel: ");
+                        Console.WriteLine("");
+                        var cabine = vlucht.Personeel.Where(p => p.GetType() == typeof(CabinePersoneel));
+                        foreach (var bar in cabine)
+                        {
+                            bar.Afbeelden();
+                        }
+                    }
+                }            
             }
-            //nog maals nu op personenvluchten
         }
     }
 }

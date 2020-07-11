@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FLYNET.Personeel
 {
-    class CabinePersoneel : VliegendPersoneel
+    public class CabinePersoneel : VliegendPersoneel
     {
-        private Graad graad;
+        public Graad graad;
         //werkpositie string 3 opties
         public readonly string Werkpositie;
 
         //grrad: purser of steward met exeption bij foute ingave
-        public Graad Type
+        public override Graad Graad
         {
             get { return graad; }
             set
             {
-                if (!Enum.IsDefined(typeof(VliegendPersoneel.Graad), value))
+                if (!Enum.IsDefined(typeof(Graad), value))
                 {
-                    Console.WriteLine("Deze graad bestaad niet");
+                    throw new Exception("Deze graad bestaad niet");
                 }
-                else if (value != VliegendPersoneel.Graad.Pulser || value != VliegendPersoneel.Graad.Steward)
+                else if (value != Graad.Purser || value != Graad.Steward)
                 {
-                    Console.WriteLine("Personen met deze graad werken niet in de cabine.");
+                    throw new Exception($"Personen met deze graad werken niet in de cabine ({value.ToString()})");
                 }
                 graad = value;
             }
@@ -34,36 +35,38 @@ namespace FLYNET.Personeel
             set { BasisKostprijsPerDag = value; }
         }
 
-        public override decimal TotaleKostprijsPerDag
-        {
-            get
-            {
-                decimal Salaris;
-                if (Type == Graad.Pulser)
-                {
-                    Salaris = BasisKostprijsPerDag * 1.2M;
-                }
-                else //(Type == Graad.Steward)
-                {
-                    Salaris = BasisKostprijsPerDag;
-                }
-                if (HasCertificate("EHBO"))
-                { Salaris = Salaris + 5m; }
-                return Salaris;
-            }
-
-        }
-
-        // 5€ extra voor ehbo certificaat
+       
 
         //constructor
-        public CabinePersoneel(string personeelsId, string naam, Graad value, string werkpositie, decimal basiskostprijs, List<Certificate> cerificaten)
+        public CabinePersoneel(string personeelsId, string naam, Graad value, string werkpositie, decimal basiskostprijs, List<Certificaat> cerificaten)
         {
             PersoneelsId = personeelsId;
             Naam = naam;
             BasisKostprijsPerDag = basiskostprijs;
-            Certificates = cerificaten;
+            Certificaten = cerificaten;
             Werkpositie = werkpositie;
+        }
+
+        //Method
+        public override decimal BerekenTotaleKostprijsPerDag()
+        {
+          decimal Salaris;
+                  if (Graad == Graad.Purser)
+                  {
+                      Salaris = BasisKostprijsPerDag * 1.2M;
+                  }
+                  else //(Type == Graad.Steward)
+                  {
+                      Salaris = BasisKostprijsPerDag;
+                  }
+            if (Certificaten.Any(c => c.CertificaatAfkorting.Equals("EHBO"))) Salaris += 5;
+            return Salaris;
+        }
+        public override void Afbeelden()
+        {
+            Console.WriteLine(PersoneelsId + ": " + Naam + " - " + Graad);
+            Console.WriteLine("Certificaten: " + Certificaten);
+            Console.WriteLine("Werkpositie: " + Werkpositie);
         }
     }
 }

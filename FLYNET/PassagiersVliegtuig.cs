@@ -4,10 +4,10 @@ using System.Text;
 
 namespace FLYNET.Vloot
 {
-     class PassagiersVliegtuig : Luchtvaartuig
+     public class PassagiersVliegtuig : Luchtvaartuig
     {
         private decimal BasisKostprijsPassagiersVliegtuig;
-        public int AantalPassagiers;
+        public int AantalPassagiers { get; set; }
         // met 10 euro verhogen per dag per zitplaats
         public override decimal BasisKostprijsPerDag
         {
@@ -15,17 +15,22 @@ namespace FLYNET.Vloot
             set { BasisKostprijsPassagiersVliegtuig = BasisKostprijsPerDag + 10 * AantalPassagiers; }
         }
 
-        public override decimal TotaleKostprijsPerDag
-        { get; }
-
         //constructor
         public PassagiersVliegtuig(string naamvliegtuig, int kruissnelheid, int vliegbereik, int zitplaatsen, decimal basiskostprijs)
         {
-            NaamVliegtuig = naamvliegtuig;
+            TypeVliegtuig = naamvliegtuig;
             Kruissnelheid = kruissnelheid;
             VliegBereik = vliegbereik;
             AantalPassagiers = zitplaatsen;
             BasisKostprijsPerDag = basiskostprijs;
         }
+        //Method
+        public override decimal BerekenTotaleKostprijsPerDag()
+        {
+            decimal kostprijs;
+            kostprijs = BasisKostprijsPerDag + 10 * AantalPassagiers;
+            return kostprijs;
+        }
+       
     }
 }
