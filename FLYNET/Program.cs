@@ -150,34 +150,37 @@ namespace FLYNET
                 //checken op vrachtvluchten
                     Console.WriteLine("Vrachtvluchten");
                     var vrachtvluchten = vluchten.Where(v => v.TypeVliegtuig.GetType() == typeof(VrachtVliegtuig));
-                    foreach (var vlucht in vrachtvluchten)
-                    {
-                        Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} ( {vlucht.Maatschappij} ) - {vlucht.TypeVliegtuig} - {vlucht.vluchtprijs}");
-                        Console.WriteLine("------------------------------------------------------------------------------");
-                        Console.WriteLine(" ");
-                        Console.WriteLine("Cockpit personeel.");
-                        Console.WriteLine(" ");
+            foreach (var vlucht in vrachtvluchten)
+            {
+                vlucht.BerekenVluchtKost();
+                        
+                Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} ( {vlucht.Maatschappij} ) - {vlucht.TypeVliegtuig} - vluchtprijs: {vlucht.vluchtprijs}");
+                Console.WriteLine("------------------------------------------------------------------------------");
+                Console.WriteLine(" ");
+                Console.WriteLine("Cockpit personeel.");
+                Console.WriteLine(" ");
 
-                            var cockpit = vlucht.Personeel.Where(p => p.GetType() == typeof(CockpitPersoneel));
-                            foreach (var foo in cockpit)
-                            {
-                                foo.Afbeelden();
-                            }
-                             Console.WriteLine(" ");
-                            Console.WriteLine("Cabine personeel: ");
-                            Console.WriteLine("");
-                            var cabine = vlucht.Personeel.Where(p => p.GetType() == typeof(CabinePersoneel));
-                            foreach (var bar in cabine)
-                            {
-                                bar.Afbeelden();
-                            }
-                        Console.WriteLine(" ");
-                    }
+                var cockpit = vlucht.Personeel.Where(p => p.GetType() == typeof(CockpitPersoneel));
+                foreach (var foo in cockpit)
+                  {
+                  foo.Afbeelden();
+                  }
+                   Console.WriteLine(" ");
+                   Console.WriteLine("Cabine personeel: ");
+                   Console.WriteLine("");
+                   var cabine = vlucht.Personeel.Where(p => p.GetType() == typeof(CabinePersoneel));
+                   foreach (var bar in cabine)
+                     {
+                     bar.Afbeelden();
+                     }
+                Console.WriteLine(" ");
+            }
                     Console.WriteLine("Passagiersvluchten");
                     var passagiersvluchten = vluchten.Where(v => v.TypeVliegtuig.GetType() == typeof(PassagiersVliegtuig));
                     foreach (var vlucht in passagiersvluchten)
                     {
-                        Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} - ( {vlucht.Maatschappij} ) - {vlucht.TypeVliegtuig} - {vlucht.vluchtprijs}");
+                         vlucht.BerekenVluchtKost();
+                        Console.WriteLine($"{vlucht.VluchtID}: {vlucht.Bestemming} - ( {vlucht.Maatschappij} ) - {vlucht.TypeVliegtuig} - vluchtprijs: {vlucht.vluchtprijs}");
                         Console.WriteLine("------------------------------------------------------------------------------");
                         Console.WriteLine(" ");
                         Console.WriteLine("Cockpit personeel.");
@@ -186,7 +189,8 @@ namespace FLYNET
                         var cockpit = vlucht.Personeel.Where(p => p.GetType() == typeof(CockpitPersoneel));
                         foreach (var foo in cockpit)
                         {
-                            foo.Afbeelden();
+                          foo.Afbeelden();
+                          Console.WriteLine(" ");
                         }
                         Console.WriteLine("");
                         Console.WriteLine("Cabine personeel: ");
@@ -195,6 +199,7 @@ namespace FLYNET
                         foreach (var bar in cabine)
                         {
                             bar.Afbeelden();
+                            Console.WriteLine("");
                         }
                         Console.WriteLine("");
                     }            
